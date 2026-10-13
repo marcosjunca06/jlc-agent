@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jlc-agent"
+dynamic = ["version"]
+description = "JLCPCB from the command line and from AI agents (MCP): orders, quotes and checks before you order"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+keywords = ["jlcpcb", "jlcone", "pcb", "pcba", "kicad", "cpl", "electronics", "mcp", "claude", "agent", "cli"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Manufacturing",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
+]
+dependencies = ["websockets>=13"]
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.10"]
+
+[project.urls]
+Homepage = "https://github.com/marcosjunca06/jlc-agent"
+Issues = "https://github.com/marcosjunca06/jlc-agent/issues"
+
+[project.scripts]
+jlc-agent = "jlc_agent.cli:main"
+jlc-agent-mcp = "jlc_agent.mcp_server:main"
+
+[tool.hatch.version]
+path = "src/jlc_agent/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/jlc_agent"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "examples", "README.md", "LICENSE"]

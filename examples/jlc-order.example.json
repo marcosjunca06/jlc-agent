@@ -1,0 +1,31 @@
+{
+  "board": "example board rev B",
+  "gerbers": "gerbers.zip",
+  "bom": "bom.csv",
+  "cpl": "cpl-corrected.csv",
+  "pcb": {
+    "PCB Qty": "5",
+    "Min via hole size/diameter": "0.3mm/(0.4/0.45mm)",
+    "Specify Stackup": "Yes",
+    "Layer Stackup": "JLC06161H-3313",
+    "Impedance Control": "±10% (±5Ω if value≤50Ω)",
+    "Via Covering": "Epoxy Filled & Capped",
+    "Surface Finish": "ENIG",
+    "Confirm Production file": "Yes",
+    "Material Type": "FR4 TG155"
+  },
+  "assembly": {
+    "PCBA Type": "Standard",
+    "Assembly Side": "Top Side",
+    "PCBA Qty": "5",
+    "Confirm Parts Placement": "Yes"
+  },
+  "pcb_build_time": "fastest",
+  "accept": ["actual thickness of this stackup"],
+  "answers": {
+    "will be automatically confirmed": ["Do not confirm automatically", "Confirm"]
+  },
+  "remark": "Impedance 50 ohm +/-10% on the antenna feed (F.Cu over In1): see the note in the Gerbers zip.",
+  "assembly_remark": "Stencil 0.12 mm. Unfitted parts carry no paste.",
+  "note": "Rows and options are spelled exactly as JLC's quote page shows them, in page order; Material Type comes last because choosing a stack-up resets it. Rows left out keep JLC's default. 'accept' lists phrases of JLC questions that may be answered Yes (here: JLC06161H-3313 is really 1.5384 mm thick, not 1.6). 'answers' names what to press in a window whose answer is not Yes (here: Confirm Parts Placement asks you to confirm within 72 hours or production starts by itself). Files are relative to this spec; the CPL is the one `jlc-agent cpl-check` corrected."
+}
